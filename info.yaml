@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "IEEE_MMU_Cybertron_Logo"      # Project title
+  title:        "IEEE_MMU_Logo"      # Project title
   author:       "Au Kai Zhe, Lim Zing"      # Your name
   discord:      "zzzzzing"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Display the logo of Multimedia University (MMU) with VGA"      # One line description of what your project does
