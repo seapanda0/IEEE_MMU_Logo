@@ -49,7 +49,7 @@ module tt_um_Halcy0nnnn_1 (
   assign uio_oe  = 0;
 
   // Suppress unused signals warning
-  wire _unused_ok = &{ena, ui_in[7:1], uio_in};
+  wire _unused_ok = &{ena, ui_in[7:6], uio_in};
 
   vga_sync_generator vga_sync_gen (
       .clk(clk),
@@ -71,9 +71,15 @@ module tt_um_Halcy0nnnn_1 (
   wire [9:0] y = pix_y - logo_top;
   wire logo_pixels = cfg_tile || (x[9:8] == 0 && y[9:8] == 0);
 
+  wire [7:0] x_count;
+  wire [7:0] y_count;
+
+  assign x_count = ui_in[5] ? ~x[7:0] : x[7:0]; 
+  assign y_count = ui_in[5] ? ~y[7:0] : y[7:0]; 
+
   bitmap_rom rom1 (
-      .x(~x[7:0]),
-      .y(~y[7:0]),
+      .x(x_count),
+      .y(y_count),
       .pixel(pixel_value)
   );
 
